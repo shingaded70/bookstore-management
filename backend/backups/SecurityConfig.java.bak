@@ -1,0 +1,28 @@
+package com.example.bookstore.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+/**
+ * Development-only permissive security config.
+ * Allows all requests to /api/** without auth so frontend flows can be tested.
+ * Remove or replace with real JWT-based security before production.
+ */
+@Configuration
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable());
+        // permit all API endpoints for local development/testing
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/**").permitAll()
+                .anyRequest().permitAll()
+        );
+        // allow frames (H2 console) during dev
+        http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
+        return http.build();
+    }
+}

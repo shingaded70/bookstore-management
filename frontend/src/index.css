@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: #f4f6f8;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+button.secondary {
+  background: #6b7280;
+}
+
+input, select {
+  padding: 8px;
+  margin: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
